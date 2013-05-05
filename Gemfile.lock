@@ -2,9 +2,6 @@ GEM
   remote: http://rubygems.org/
   specs:
     backports (3.3.0)
-    eventmachine (1.0.3-x86-mingw32)
-    haml (4.0.2)
-      tilt
     rack (1.5.2)
     rack-protection (1.5.0)
       rack
@@ -28,7 +25,6 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
-  haml
   rake
   sinatra
   sinatra-contrib

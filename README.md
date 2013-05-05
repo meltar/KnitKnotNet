@@ -1,1 +1,1 @@
-A practice website to go with my knitting blog
+A practice Sinatra website to go with my knitting blog

@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	{block:Description}<meta name="description" content="{MetaDescription}" />{/block:Description}
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>{Title}{block:PostSummary} - {PostSummary}{/block:PostSummary}</title>
+	<link rel="icon" href="{Favicon}"/>
+	<link rel="alternate" type="application/rss+xml" title="RSS" href="{RSS}"/>
+	<meta name="viewport" content="width=775"/> <!-- iPhone -->
+	<meta name="if:Show post notes" content ="1"/>
+	<meta name="if:Enable text shadow" content ="1"/>
+	
+	<meta name="text:Disqus Shortname" content="" />
+	
+	<!-- Custom Colours -->
+	<meta name="color:Background" content="#2b2b2b" />
+	<meta name="color:Header Text" content="#ffc6a5" />
+	<meta name="color:Body Text" content="#f2e3c6" />
+	<meta name="color:Links" content="#e6324b" />
+	
+	<style type="text/css">
+	/* GLOBAL */
+	body {
+		background-color: 				{color:Background};
+		font: 							16px/20px "Lucida Grande", Arial, sans-serif;
+		color: 							{color:Body Text};
+		{block:IfEnableTextShadow}text-shadow: 1px 1px 2px black;{/block:IfEnableTextShadow}
+	}
+	.clear { 
+		clear: 							both; 
+	}
+	div#container {
+		width: 							770px;
+		margin: 						40px;
+		padding: 						0 40px 40px 40px;
+	}
+	
+	/* HEADER */
+	div#header {
+		padding: 						10px 0;
+		margin-bottom: 					20px;
+	}
+	div#header h1 {
+		margin: 						10px 0;
+		text-align:						right;
+	/*	text-transform:					uppercase; */
+		font-size: 						46px;
+		font-weight: 					bold;
+		line-height: 					40px;
+		text-spacing: 					-10px;
+		font-family: 					Helvetica;
+	}
+	div#header h1 a {
+		text-decoration: 				none;
+		color: 							{color:Header Text};
+	}
+	div#header div.description {
+        float:                          right;
+	    font-size: 						24px;
+		font-weight: 					bold;
+		line-height: 					20px;
+		font-family: 					Helvetica;
+		margin-top: 					10px;
+        color: 							{color:Links Text};
+        margin-bottom:     				30px;
+	}
+
+	/* LEFT COLUMN (Nav links, description) */
+	div#meta-column {
+		width: 							150px;
+		float: 							left;
+	}
+	div#meta-column ul#navigation {
+		margin: 						0;
+		padding: 						0;
+		list-style-type: 				none;
+	}
+	div#meta-column ul {
+		list-style-type: 				none;
+		margin: 						0 0 5px 15px;
+		padding: 						0
+	}
+	div#meta-column ul li a {
+		color: 							{color:Links};
+		text-decoration: 				none;
+	}
+	div#meta-column ul#navigation li {
+		display: 						inline;
+		float: 							left;
+		padding-right:					10px;
+	}
+	div#meta-column ul#navigation li a {
+		text-decoration: 				none;
+		color: 							{color:Links};
+		font-weight: 					bold;
+	}
+	div#meta-column p {
+		color: 							{color:Body Text};
+		font-size: 						12px;
+		font-weight: 					bold;
+		line-height: 					20px;
+		font-family: 					Helvetica, Arial, sans-serif;
+	}
+	div#meta-column p a {
+		color: 							{color:Links};
+		font-weight: 					bold;
+		text-decoration: 				none;
+	}
+	div#meta-column div.description {
+		color: 							{color:Body Text};
+		font-size: 						16px;
+		font-weight: 					bold;
+		line-height: 					20px;
+		font-family: 					Helvetica;
+		margin-top: 					10px;
+	}
+	div#meta-column div.description a {
+		color: 							{color:Links};
+		font-weight: 					bold;
+		text-decoration: 				none;
+	}
+	
+	/* SEARCH */
+	div#meta-column div.search {
+		margin-top:						10px;
+	}
+	div#meta-column div.search form input.term {
+		width:							150px;
+	}
+	/* MAIN CONTENT COLUMN */
+	div#content-column {
+		width: 							500px;
+		float: 							right;
+	}
+	div#content-column .post {
+		border-bottom: 					none;
+		padding-bottom: 				30px;
+		margin-bottom: 					60px;
+	}
+	div#content-column .post a {
+		color: 							{color:Links};
+		font-weight: 					bold;
+		text-decoration: 				none;
+	}
+	div#content-column .post .date {
+		float: 							left;
+		font: 							14px/16px Helvetica, Arial, sans-serif;
+		padding: 						0;
+		text-transform: 				uppercase;
+		margin-bottom: 					10px;
+	}
+	div#content-column .post .date a {
+		color: 							{color:Links};
+		text-decoration: 				none;
+	}
+	div#content-column .post .type {
+		float: 							right;
+		font: 							14px/16px Helvetica, Arial, sans-serif;
+		color: 							{color:Body Text};
+		padding: 						0;
+		text-transform: 				uppercase;
+		margin-bottom: 					10px;
+	}
+	div#content-column .post h2 {
+		margin: 						0px 0 10px 0;
+		font-weight: 					normal;
+		text-transform: 				uppercase;
+		font-size: 						14px;
+		font-family:					Helvetica, Arial, sans-serif;
+	}
+	div#content-column .post h2 a {
+		color: 							{color:Links} !important;
+		text-decoration: 				none;
+	}
+	div#content-column .post p {
+		margin: 						0;
+		padding: 						0 0 10px 0;
+	}
+	
+	/* QUOTE SPECIFIC */
+	div#content-column .quote blockquote {
+		margin: 						0;
+	}
+	div#content-column .quote blockquote p {
+		font: 							14px/20px Palatino, Georgia, serif;
+		color: 							{color:Body Text};
+		font-style: 					italic;
+	}
+	div#content-column .quote blockquote {
+		font: 							14px/20px Palatino, Georgia, serif;
+		color: 							{color:Body Text};
+		font-style: 					italic;
+	}
+	div#content-column .quote .source {
+		font-size: 						10px;
+		text-align: 					right;
+		padding: 						0;
+	}
+	
+	/* TEXT SPECIFIC */
+	div#content-column .text img {
+		max-width: 						100%;
+		border: 						3px solid #000;
+		margin: 						0 auto 8px auto;
+		display: 						block;
+	}
+	
+	/* PHOTO SPECIFIC */
+	div#content-column .photo img {
+		border: 						3px solid #000;
+		margin: 						0 auto 8px auto;
+		display: 						block;
+	}
+	
+	/* VIDEO SPECIFIC */
+	div#content-column .video object {
+		border: 						3px solid #000;
+		margin-bottom:					8px;
+	}
+	
+	/* CHAT SPECIFIC */
+	div#content-column .chat ul {
+		padding: 						0;
+		margin: 						0;
+		list-style-type: 				none;
+	}
+	div#content-column .chat ul li {
+		padding: 						5px;
+		margin: 						5px 0;
+	}
+	
+	/* AUDIO SPECIFIC */
+	div#content-column .audio embed {
+		margin-bottom: 					10px;
+	}
+	
+	/* TAGS */
+	div#content-column .post p.tags {
+		font-style: 					italic;
+		font-size: 						11px;
+	}
+	p.tags a {
+		padding: 						0 5px;
+	}
+	
+	/* SOURCE URLS */
+	div#content-column .post p.source_url {
+		font-style: 					italic;
+		font-size: 						11px;
+	}
+	p.source_url a {
+		padding: 						0 5px;
+	}
+	
+	/* COMMENTS */
+	div#content-column .post p.comments {
+	    font-size: 11px;
+	}
+	
+	#disqus_thread #dsq-content #dsq-new-post.dsq-post-area h3,
+    #disqus_thread #dsq-content #dsq-new-post.dsq-post-area .dsq-dc-logo,
+    #disqus_thread #dsq-content td.dsq-request-user-name small,
+    #disqus_thread #dsq-content td.dsq-request-user-stats,
+    #disqus_thread #dsq-content .dsq-sharing-options,
+    #disqus_thread #dsq-content .dsq-comments-title,
+    #disqus_thread #dsq-content .dsq-options,
+    #disqus_thread #dsq-content .dsq-thread-settings,
+    #disqus_thread #dsq-content .dsq-comments-title,
+    #disqus_thread #dsq-content .dsq-comments-title h3 {
+        display: none;
+    }
+	
+	/* PAGINATION */
+	div#pagination {
+		font: 							14px/14px Helvetica, Arial, sans-serif;
+		font-style: 					italic;
+	}
+	div#pagination a {
+		text-decoration: 				none;
+		color: 							{color:Links};
+		font-weight: 					bold;
+	}
+	div#pagination #pages {
+		float: 							left;
+	}
+	div#pagination #nav-pages {
+		float: 							right;
+	}
+	
+	/* NOTES */
+	ol.notes {
+    	padding: 						0px;
+    	margin: 						25px 0px;
+    	list-style-type: 				none;
+		}
+		ol.notes a {
+		color: 							{color:Links};
+		text-decoration: 				none;
+	}
+	ol.notes li.note {
+    	padding: 						10px;
+	}
+
+	ol.notes li.note img.avatar {
+    	vertical-align:					-4px;
+    	margin-right:			 		10px;
+    	width: 							16px;
+    	height:							16px;
+		border: 						2px solid #000;
+	}
+
+	ol.notes li.note span.action {
+    	font-weight: 					bold;
+	}
+
+	ol.notes li.note .answer_content {
+    	font-weight: 					normal;
+	}
+
+	ol.notes li.note blockquote {
+    	border-color: 					#eee;
+    	padding: 						4px 10px;
+    	margin:							10px 0px 0px 25px;
+		color: 							{color:Body Text};
+	}
+
+	ol.notes li.note blockquote a {
+    	text-decoration: 				none;
+	}
+	
+	#disqus_thread a {
+	    color: 							{color:Links};
+		text-decoration: 				none;
+	}
+	
+	{CustomCSS}
+	</style>
+
+
+</head>
+<body>
+	<div id="container">
+		<div id="header">
+			<h1><a href="/">{Title}</a></h1>
+            <div class="description">
+        		{Description}
+			</div>
+		</div>
+        
+
+		<div id="meta-column">
+			<ul id="navigation">
+				<li><a href="/archive">{lang:Archive}</a></li>
+				<li><a href="{RSS}">{lang:Subscribe}</a></li>
+				{block:AskEnabled}<li><a href="/ask">{AskLabel}</a></li>{/block:AskEnabled}
+                {block:SubmissionsEnabled}<li><a href="/submit">{SubmitLabel}</a></li>{/block:SubmissionsEnabled}
+				{block:HasPages}
+					{block:Pages}<li><a href="{URL}">{Label}</a></li>{/block:Pages}
+				{/block:HasPages}
+			</ul>
+			<div class="clear"></div>
+            
+            <!--<div class="description">
+    			{Description}
+			</div>
+            -->
+			
+			<div class="search">
+				<form action="/search" method="get">
+				    <input type="text" name="q" value="{SearchQuery}" class="term"/>
+				    <input type="submit" value="Search"/>
+				</form>
+			</div>
+		</div>
+
+		<div id="content-column">
+			{block:Posts}
+			{block:Text}
+			<div class="post text">
+				<p class="date"><a href="{Permalink}">{DayOfMonth}{DayOfMonthSuffix} {Month} {Year}</a></p>
+				<p class="type">
+				    {block:Reblog}
+				        {block:IfShowPostNotes}{lang:PostTypeNoun reblogged from ReblogParentTitle with NoteCount notes 2}{/block:IfShowPostNotes}
+				        {block:IfNotShowPostNotes}{lang:PostTypeNoun reblogged from ReblogParentTitle 2}{/block:IfNotShowPostNotes}
+				    {/block:Reblog}
+				    {block:NotReblog}
+				        {block:IfShowPostNotes}{lang:PostTypeNoun with NoteCount notes 2}{/block:IfShowPostNotes}
+				        {block:IfNotShowPostNotes}{PostTypeNoun}{/block:IfNotShowPostNotes}
+				    {/block:NotReblog}
+				</p>
+				<div class="clear"></div>
+				{block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
+				{Body}
+				{block:HasTags}<p class="tags">{lang:Tagged}: {block:Tags}<a href="{TagURL}">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
+				{block:IfDisqusShortname}<p class="comments">(<a href="{Permalink}#disqus_thread"></a>)</p>{/block:IfDisqusShortname}
+				{block:ContentSource}<p class="source_url">{lang:Source}: <a href="{SourceURL}">{SourceTitle}</a></p>{/block:ContentSource}
+			</div>
+			{/block:Text}
+			
+			{block:Photo}
+			<div class="post photo">
+				<p class="date"><a href="{Permalink}">{DayOfMonth}{DayOfMonthSuffix} {Month} {Year}</a></p>
+				<p class="type">
+				    {block:Reblog}
+				        {block:IfShowPostNotes}{lang:PostTypeNoun reblogged from ReblogParentTitle with NoteCount notes 2}{/block:IfShowPostNotes}
+				        {block:IfNotShowPostNotes}{lang:PostTypeNoun reblogged from ReblogParentTitle 2}{/block:IfNotShowPostNotes}
+				    {/block:Reblog}
+				    {block:NotReblog}
+				        {block:IfShowPostNotes}{lang:PostTypeNoun with NoteCount notes 2}{/block:IfShowPostNotes}
+				        {block:IfNotShowPostNotes}{PostTypeNoun}{/block:IfNotShowPostNotes}
+				    {/block:NotReblog}
+				</p>
+				<div class="clear"></div>
+				{LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}
+				{block:Caption}{Caption}{/block:Caption} 
+				<div class="clear"></div>
+				{block:HasTags}<p class="tags">{lang:Tagged}: {block:Tags}<a href="{TagURL}">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
+				{block:IfDisqusShortname}<p class="comments">(<a href="{Permalink}#disqus_thread"></a>)</p>{/block:IfDisqusShortname}
+				{block:ContentSource}<p class="source_url">{lang:Source}: <a href="{SourceURL}">{SourceTitle}</a></p>{/block:ContentSource}
+			</div>
+			{/block:Photo} 
+			
+			{block:Quote}
+			<div class="post quote">
+				<p class="date"><a href="{Permalink}">{DayOfMonth}{DayOfMonthSuffix} {Month} {Year}</a></p>
+				<p class="type">
+				    {block:Reblog}
+				        {block:IfShowPostNotes}{lang:PostTypeNoun reblogged from ReblogParentTitle with NoteCount notes 2}{/block:IfShowPostNotes}
+				        {block:IfNotShowPostNotes}{lang:PostTypeNoun reblogged from ReblogParentTitle 2}{/block:IfNotShowPostNotes}
+				    {/block:Reblog}
+				    {block:NotReblog}
+				        {block:IfShowPostNotes}{lang:PostTypeNoun with NoteCount notes 2}{/block:IfShowPostNotes}
+				        {block:IfNotShowPostNotes}{PostTypeNoun}{/block:IfNotShowPostNotes}
+				    {/block:NotReblog}
+				</p>
+				<div class="clear"></div>
+				<blockquote>{Quote}</blockquote>
+				<div class="source">{block:Source}&mdash; {Source}{/block:Source}</div>
+				{block:HasTags}<p class="tags">{lang:Tagged}: {block:Tags}<a href="{TagURL}">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
+				{block:IfDisqusShortname}<p class="comments">(<a href="{Permalink}#disqus_thread"></a>)</p>{/block:IfDisqusShortname}
+				{block:ContentSource}<p class="source_url">{lang:Source}: <a href="{SourceURL}">{SourceTitle}</a></p>{/block:ContentSource}
+			</div>
+			{/block:Quote} 
+			
+			{block:Link}
+			<div class="post link">
+				<p class="date"><a href="{Permalink}">{DayOfMonth}{DayOfMonthSuffix} {Month} {Year}</a></p>
+				<p class="type">
+				    {block:Reblog}
+				        {block:IfShowPostNotes}{lang:PostTypeNoun reblogged from ReblogParentTitle with NoteCount notes 2}{/block:IfShowPostNotes}
+				        {block:IfNotShowPostNotes}{lang:PostTypeNoun reblogged from ReblogParentTitle 2}{/block:IfNotShowPostNotes}
+				    {/block:Reblog}
+				    {block:NotReblog}
+				        {block:IfShowPostNotes}{lang:PostTypeNoun with NoteCount notes 2}{/block:IfShowPostNotes}
+				        {block:IfNotShowPostNotes}{PostTypeNoun}{/block:IfNotShowPostNotes}
+				    {/block:NotReblog}
+				</p>
+				<div class="clear"></div>
+				<h2><a href="{URL}" {Target}>{Name} &rarr;</a></h2>
+				{block:Description}{Description} {/block:Description} 
+				{block:HasTags}<p class="tags">{lang:Tagged}: {block:Tags}<a href="{TagURL}">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
+				{block:IfDisqusShortname}<p class="comments">(<a href="{Permalink}#disqus_thread"></a>)</p>{/block:IfDisqusShortname}
+				{block:ContentSource}<p class="source_url">{lang:Source}: <a href="{SourceURL}">{SourceTitle}</a></p>{/block:ContentSource}
+			</div>
+			{/block:Link} 
+			
+			{block:Chat}
+			<div class="post chat">
+				<p class="date"><a href="{Permalink}">{DayOfMonth}{DayOfMonthSuffix} {Month} {Year}</a></p>
+				<p class="type">
+				    {block:Reblog}
+				        {block:IfShowPostNotes}{lang:PostTypeNoun reblogged from ReblogParentTitle with NoteCount notes 2}{/block:IfShowPostNotes}
+				        {block:IfNotShowPostNotes}{lang:PostTypeNoun reblogged from ReblogParentTitle 2}{/block:IfNotShowPostNotes}
+				    {/block:Reblog}
+				    {block:NotReblog}
+				        {block:IfShowPostNotes}{lang:PostTypeNoun with NoteCount notes 2}{/block:IfShowPostNotes}
+				        {block:IfNotShowPostNotes}{PostTypeNoun}{/block:IfNotShowPostNotes}
+				    {/block:NotReblog}
+				</p>
+				<div class="clear"></div>
+				{block:Title}<h2>{Title}</h2>{/block:Title} 
+				<ul>
+					{block:Lines}<li>{block:Label}<strong>{Label}</strong>{/block:Label} {Line}</li>{/block:Lines}
+				</ul>
+				{block:HasTags}<p class="tags">{lang:Tagged}: {block:Tags}<a href="{TagURL}">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
+				{block:IfDisqusShortname}<p class="comments">(<a href="{Permalink}#disqus_thread"></a>)</p>{/block:IfDisqusShortname}
+				{block:ContentSource}<p class="source_url">{lang:Source}: <a href="{SourceURL}">{SourceTitle}</a></p>{/block:ContentSource}
+			</div>
+			{/block:Chat} 
+			
+			{block:Audio}
+			<div class="post audio">
+				<p class="date"><a href="{Permalink}">{DayOfMonth}{DayOfMonthSuffix} {Month} {Year}</a></p>
+				<p class="type">
+				    {block:Reblog}
+				        {block:IfShowPostNotes}{lang:PostTypeNoun reblogged from ReblogParentTitle with NoteCount notes 2}{/block:IfShowPostNotes}
+				        {block:IfNotShowPostNotes}{lang:PostTypeNoun reblogged from ReblogParentTitle 2}{/block:IfNotShowPostNotes}
+				    {/block:Reblog}
+				    {block:NotReblog}
+				        {block:IfShowPostNotes}{lang:PostTypeNoun with NoteCount notes 2}{/block:IfShowPostNotes}
+				        {block:IfNotShowPostNotes}{PostTypeNoun}{/block:IfNotShowPostNotes}
+				    {/block:NotReblog} - {lang:Played PlayCount times}
+				</p>
+				<div class="clear"></div>
+				{AudioPlayerWhite}
+				{block:Caption}{Caption}{/block:Caption}
+				{block:HasTags}<p class="tags">{lang:Tagged}: {block:Tags}<a href="{TagURL}">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
+				{block:IfDisqusShortname}<p class="comments">(<a href="{Permalink}#disqus_thread"></a>)</p>{/block:IfDisqusShortname}
+				{block:ContentSource}<p class="source_url">{lang:Source}: <a href="{SourceURL}">{SourceTitle}</a></p>{/block:ContentSource}
+			</div>
+			{/block:Audio} 
+			
+			{block:Video}
+			<div class="post video">
+				<p class="date"><a href="{Permalink}">{DayOfMonth}{DayOfMonthSuffix} {Month} {Year}</a></p>
+				<p class="type">
+				    {block:Reblog}
+				        {block:IfShowPostNotes}{lang:PostTypeNoun reblogged from ReblogParentTitle with NoteCount notes 2}{/block:IfShowPostNotes}
+				        {block:IfNotShowPostNotes}{lang:PostTypeNoun reblogged from ReblogParentTitle 2}{/block:IfNotShowPostNotes}
+				    {/block:Reblog}
+				    {block:NotReblog}
+				        {block:IfShowPostNotes}{lang:PostTypeNoun with NoteCount notes 2}{/block:IfShowPostNotes}
+				        {block:IfNotShowPostNotes}{PostTypeNoun}{/block:IfNotShowPostNotes}
+				    {/block:NotReblog}
+				</p>
+				<div class="clear"></div>
+				{Video-500}
+				{block:Caption}{Caption}{/block:Caption}
+				<div class="clear"></div>
+				{block:HasTags}<p class="tags">{lang:Tagged}: {block:Tags}<a href="{TagURL}">{Tag}</a>{/block:Tags}</p>{/block:HasTags}
+				{block:IfDisqusShortname}<p class="comments">(<a href="{Permalink}#disqus_thread"></a>)</p>{/block:IfDisqusShortname}
+				{block:ContentSource}<p class="source_url">{lang:Source}: <a href="{SourceURL}">{SourceTitle}</a></p>{/block:ContentSource}
+			</div>
+			{/block:Video} 
+			
+			{block:IfDisqusShortname}
+            {block:Permalink}
+            <div id="disqus_thread" style="margin-bottom: 60px; padding-bottom: 30px;"></div>
+            <script type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/embed.js"></script>
+            <noscript><a href="http://{text:Disqus Shortname}.disqus.com/?url=ref">{lang:View the discussion thread}</a></noscript>
+            {/block:Permalink}
+            {/block:IfDisqusShortname}
+			
+			{block:IfShowPostNotes}
+			{Block:PostNotes}
+			{PostNotes}
+			{/Block:PostNotes}
+			{/block:IfShowPostNotes}
+
+			{block:IfNotShowPostNotes}
+			{/block:IfNotShowPostNotes}
+			
+			{/block:Posts}	
+
+			
+			{block:Pagination}
+			<div id="pagination">
+				<div id="pages">
+					<p>{lang:Page CurrentPage of TotalPages}</p>
+				</div>
+				<div id="nav-pages">
+					<p>
+						{block:NextPage}<a href="{NextPage}">&larr; {lang:Previous page}</a>{/block:NextPage}
+						&bull;
+						{block:PreviousPage}<a href="{PreviousPage}">{lang:Next page} &rarr;</a>{/block:PreviousPage}
+					</p>
+				</div>
+			</div>
+			{/block:Pagination}
+			
+			{block:PermalinkPagination}
+			<div id="pagination">
+				<div id="nav-pages">
+					<p>
+						{block:NextPost}<a href="{NextPost}">&larr; {lang:Previous post}</a>{/block:NextPost}
+						&bull;
+						{block:PreviousPost}<a href="{PreviousPost}">{lang:Next post} &rarr;</a>{/block:PreviousPost}
+					</p>
+				</div>
+			</div>
+			{/block:PermalinkPagination}
+
+		</div>
+		<div class="clear"></div>
+	
+	</div>
+
+	</div> <!-- container -->
+
+    {block:IfDisqusShortname}
+    <script type="text/javascript">
+    //<![CDATA[
+    (function() {
+        var links = document.getElementsByTagName('a');
+        var query = '?';
+        for(var i = 0; i < links.length; i++) {
+        if(links[i].href.indexOf('#disqus_thread') >= 0) {
+            query += 'url' + i + '=' + encodeURIComponent(links[i].href) + '&';
+        }
+        }
+        document.write('<script charset="utf-8" type="text/javascript" src="http://disqus.com/forums/{text:Disqus Shortname}/get_num_replies.js' + query + '"></' + 'script>');
+    })();
+    //]]>
+    </script>
+    {/block:IfDisqusShortname}
+
+</body>
+</html>
