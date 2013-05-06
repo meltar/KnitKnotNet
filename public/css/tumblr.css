@@ -63,8 +63,8 @@ div#meta-column ul li a {
 	text-decoration: 				none;
 }
 div#meta-column ul#navigation li {
-	display: 						inline;
-	float: 							left;
+	/* display: 						inline; */
+	/*float: 							left; */
 	padding-right:					10px;
 }
 div#meta-column ul#navigation li a {
